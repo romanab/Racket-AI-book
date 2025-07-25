@@ -6,7 +6,8 @@
 (require sqlite-table)
 
 (define db-file "test.db")
-(println db-file)
+
+(define db (sqlite3-connect #:database db-file #:mode 'create))
 
 (query-exec db
      "create  table person (name varchar(30), age integer, email varchar(20))")
